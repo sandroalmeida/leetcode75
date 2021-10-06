@@ -1,4 +1,4 @@
-package info.sandroalmeida;
+package info.sandroalmeida.linkedlist;
 
 public class ReverseLinkedList {
 
