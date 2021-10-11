@@ -43,13 +43,13 @@ public class SpiralMatrix {
                 }
                 goDown = false;
                 maxX--;
-            } else if(!goRight && !goDown){
+            } else if(!goRight){
                 for(int i = maxX; i >= minX; i--){
                     result.add(matrix[maxY][i]);
                 }
                 goRight = true;
                 maxY--;
-            } else if(goRight && !goDown){
+            } else{
                 for(int i = maxY; i >= minY; i--){
                     result.add(matrix[i][minX]);
                 }
