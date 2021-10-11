@@ -41,7 +41,9 @@ public class WordDictionary {
         TrieNode[] child = new TrieNode[26];
         boolean isWord = false;
     }
+
     TrieNode root = new TrieNode();
+
     public void addWord(String word) {
         TrieNode p = root;
         for (char c : word.toCharArray()) {
