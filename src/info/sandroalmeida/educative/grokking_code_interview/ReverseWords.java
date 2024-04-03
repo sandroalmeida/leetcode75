@@ -41,10 +41,7 @@ public class ReverseWords {
             start++;
             end--;
         }
-        StringBuilder sb = new StringBuilder();
-        for(char c: chars)
-            sb.append(c);
-        return sb.toString();
+        return new String(chars);
     }
 
     public static void main(String[] args) {
