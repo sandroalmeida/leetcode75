@@ -1,7 +1,5 @@
 package info.sandroalmeida.educative.grokking_code_interview;
 
-import java.util.Arrays;
-
 public class ReverseWords {
     public static String reverseWords(String sentence) {
         // 0: cleaning space excess
