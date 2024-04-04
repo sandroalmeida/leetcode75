@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class CircularArray {
     public static boolean circularArrayLoop(int[] nums) {
-
+        if(nums.length <= 1) return false;
         for(int i = 0; i < nums.length; i++){
             boolean movingForward = nums[0] > 0;
             boolean directionChange = false;
@@ -44,11 +44,12 @@ public class CircularArray {
             }
             newIndex = nums.length + newIndex;
         }
+        if(!directionChange && index == newIndex) directionChange = true;
         return new AbstractMap.SimpleEntry<>(newIndex, directionChange);
     }
 
     public static void main(String[] args) {
-        int[] nums1 = {2,1,-1,-2};
+        int[] nums1 = {-1};
         int[] nums2 = {1, 4, 3, 2, 1};
         int[] nums3 = {2, 5, -4, 3, -1, 4};
         System.out.println(circularArrayLoop(nums1));
