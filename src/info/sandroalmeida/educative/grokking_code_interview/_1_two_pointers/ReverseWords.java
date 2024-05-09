@@ -1,4 +1,4 @@
-package info.sandroalmeida.educative.grokking_code_interview;
+package info.sandroalmeida.educative.grokking_code_interview._1_two_pointers;
 
 public class ReverseWords {
     public static String reverseWords(String sentence) {

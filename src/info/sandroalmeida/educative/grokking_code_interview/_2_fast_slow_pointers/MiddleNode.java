@@ -1,4 +1,6 @@
-package info.sandroalmeida.educative.grokking_code_interview;
+package info.sandroalmeida.educative.grokking_code_interview._2_fast_slow_pointers;
+
+import info.sandroalmeida.educative.grokking_code_interview.LinkedListNode;
 
 public class MiddleNode {
     public static LinkedListNode middleNode(LinkedListNode head) {

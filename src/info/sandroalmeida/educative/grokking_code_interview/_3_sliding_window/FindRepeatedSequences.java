@@ -1,4 +1,4 @@
-package info.sandroalmeida.educative.grokking_code_interview;
+package info.sandroalmeida.educative.grokking_code_interview._3_sliding_window;
 
 import java.util.HashSet;
 import java.util.Set;

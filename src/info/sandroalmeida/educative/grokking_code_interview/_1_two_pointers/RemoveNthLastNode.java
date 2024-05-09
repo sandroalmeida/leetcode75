@@ -1,4 +1,6 @@
-package info.sandroalmeida.educative.grokking_code_interview;
+package info.sandroalmeida.educative.grokking_code_interview._1_two_pointers;
+
+import info.sandroalmeida.educative.grokking_code_interview.LinkedListNode;
 
 public class RemoveNthLastNode {
 

@@ -1,4 +1,4 @@
-package info.sandroalmeida.educative.grokking_code_interview;
+package info.sandroalmeida.educative.grokking_code_interview._2_fast_slow_pointers;
 
 public class HappyNumber {
 
