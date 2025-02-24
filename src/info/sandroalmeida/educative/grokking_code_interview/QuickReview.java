@@ -9,7 +9,11 @@ public class QuickReview {
 //    int[] result = twoSum(nums, 9);
 //    System.out.println(Arrays.toString(result));
 
-    System.out.println(longestSubstring("abcabcabc"));
+//    System.out.println(longestSubstring("abcabcabc"));
+
+    int[] nums1 = {1,2,3};
+    int[] nums2 = {4,5,6};
+    System.out.println(returnMedian(nums1, nums2));
 
   }
 
@@ -47,5 +51,35 @@ public class QuickReview {
     }
 
     return longest;
+  }
+
+  public static float returnMedian(int[] nums1, int[] nums2) {
+    List<Integer> merged = new ArrayList<>();
+
+    int idx1 = 0, idx2 = 0;
+    while (idx1 <  nums1.length && idx2 < nums2.length) {
+      if (nums1[idx1] < nums2[idx2]) {
+        merged.add(nums1[idx1]);
+        idx1++;
+      } else {
+        merged.add(nums2[idx2]);
+        idx2++;
+      }
+    }
+    while (idx1 <  nums1.length) {
+      merged.add(nums1[idx1]);
+      idx1++;
+    }
+    while (idx2 < nums2.length) {
+      merged.add(nums2[idx2]);
+      idx2++;
+    }
+
+    int mIdx = merged.size() / 2;
+    if (merged.size() % 2 == 0) {
+      return (float) (merged.get(mIdx) + merged.get(mIdx - 1)) / 2;
+    } else {
+      return merged.get(mIdx);
+    }
   }
 }
