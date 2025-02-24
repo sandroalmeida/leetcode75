@@ -15,8 +15,8 @@ public class QuickReview {
 //    int[] nums2 = {4,5,6};
 //    System.out.println(returnMedian(nums1, nums2));
 //    System.out.println(findMedianSortedArrays(nums1, nums2));
-
-    System.out.println(longestPalindrome("aaabba"));
+//    System.out.println(longestPalindrome("aaabba"));
+    System.out.println(validParenthesis("([[]])()"));
 
   }
 
@@ -153,4 +153,19 @@ public class QuickReview {
     return right - left - 1; // Return length of palindrome found
   }
 
+  private static boolean validParenthesis(String s) {
+    Stack<Character> stack = new Stack<>();
+    for (char c: s.toCharArray()) {
+        if  ( !stack.isEmpty() &&
+              ((stack.peek() == '(' && c == ')') ||
+               (stack.peek() == '[' && c == ']') ||
+               (stack.peek() == '{' && c == '}'))
+            ){
+          stack.pop();
+        } else {
+          stack.push(c);
+        }
+      }
+    return stack.isEmpty();
+  }
 }
