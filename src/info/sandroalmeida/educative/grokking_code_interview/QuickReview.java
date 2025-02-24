@@ -11,10 +11,13 @@ public class QuickReview {
 
 //    System.out.println(longestSubstring("abcabcabc"));
 
-    int[] nums1 = {1,2,3};
-    int[] nums2 = {4,5,6};
+//    int[] nums1 = {1,2,3};
+//    int[] nums2 = {4,5,6};
 //    System.out.println(returnMedian(nums1, nums2));
-    System.out.println(findMedianSortedArrays(nums1, nums2));
+//    System.out.println(findMedianSortedArrays(nums1, nums2));
+
+    System.out.println(longestPalindrome("aaabba"));
+
   }
 
   public static int[] twoSum(int[] nums, int target) {
@@ -119,4 +122,35 @@ public class QuickReview {
     }
     throw new IllegalArgumentException("Input arrays are not sorted properly.");
   }
+
+  public static String longestPalindrome(String s) {
+    if (s == null || s.isEmpty()) return "";
+    int start = 0, end = 0;
+
+    for (int i = 0; i < s.length(); i++) {
+      // Check for odd-length palindromes (centered at i)
+      int len1 = expandAroundCenter(s, i, i);
+      // Check for even-length palindromes (centered between i and i+1)
+      int len2 = expandAroundCenter(s, i, i + 1);
+
+      int maxLen = Math.max(len1, len2);
+
+      // Update the longest palindrome boundaries
+      if (maxLen > end - start) {
+        start = i - (maxLen - 1) / 2;
+        end = i + maxLen / 2;
+      }
+    }
+
+    return s.substring(start, end + 1);
+  }
+
+  private static int expandAroundCenter(String s, int left, int right) {
+    while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+      left--;
+      right++;
+    }
+    return right - left - 1; // Return length of palindrome found
+  }
+
 }
