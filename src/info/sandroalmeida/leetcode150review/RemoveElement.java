@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class RemoveElement {
   public static void main(String[] args) {
     int[] nums = {3};
-    System.out.println(removeElement(nums, 3));
+    System.out.println(removeElement2(nums, 3));
     System.out.println(Arrays.toString(nums));
   }
 
@@ -29,5 +29,22 @@ public class RemoveElement {
       }
     }
     return i;
+  }
+
+  public static int removeElement2(int[] nums, int val) {
+    // slow pointer starts at beginning and move only when valid entry is
+    // identified by fast pointer
+    // this way fast pointer brings all elements that matters to beginning
+    // and slow pointer will be at the end of valid part of the array
+    // when the fast point finish the array
+    int slow = 0;
+
+    for (int fast = 0; fast < nums.length; fast++) {
+      if (nums[fast] != val) {
+        nums[slow] = nums[fast];
+        slow++;
+      }
+    }
+    return slow;
   }
 }
