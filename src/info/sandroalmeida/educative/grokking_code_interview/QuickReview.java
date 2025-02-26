@@ -16,7 +16,8 @@ public class QuickReview {
 //    System.out.println(returnMedian(nums1, nums2));
 //    System.out.println(findMedianSortedArrays(nums1, nums2));
 //    System.out.println(longestPalindrome("aaabba"));
-    System.out.println(validParenthesis("([[]])()"));
+//    System.out.println(validParenthesis("([[]])()"));
+    System.out.println(firstUniqueCharacterString("leetcode"));
 
   }
 
@@ -167,5 +168,21 @@ public class QuickReview {
         }
       }
     return stack.isEmpty();
+  }
+
+  public static int firstUniqueCharacterString(String s) {
+      Map<Character, Integer> charCount = new HashMap<>();
+
+      for (char c : s.toCharArray()) {
+        charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+      }
+
+      for (int i = 0; i < s.length(); i++) {
+        if (charCount.get(s.charAt(i)) == 1) {
+          return i;
+        }
+      }
+
+      return -1;
   }
 }
