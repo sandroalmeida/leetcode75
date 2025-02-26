@@ -17,7 +17,9 @@ public class QuickReview {
 //    System.out.println(findMedianSortedArrays(nums1, nums2));
 //    System.out.println(longestPalindrome("aaabba"));
 //    System.out.println(validParenthesis("([[]])()"));
-    System.out.println(firstUniqueCharacterString("leetcode"));
+//    System.out.println(firstUniqueCharacterString("leetcode"));
+    int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    System.out.println(Arrays.deepToString(mergeIntervals(intervals)));
 
   }
 
@@ -182,7 +184,27 @@ public class QuickReview {
           return i;
         }
       }
-
       return -1;
+  }
+
+  public static int[][] mergeIntervals(int[][] intervals) {
+    if (intervals == null || intervals.length == 0) return new int[0][0];
+
+    Arrays.sort(intervals, Comparator.comparingInt(interval -> interval[0]));
+    List<int[]> result = new ArrayList<>();
+
+    for (int[] interval: intervals) {
+      if (result.isEmpty() || getLast(result)[1] < interval[0]) {
+        result.add(interval);
+      } else{
+        getLast(result)[1] = Math.max(interval[1], getLast(result)[1]);
+      }
+    }
+
+    return result.toArray(new int[result.size()][]);
+  }
+
+  private static int[] getLast(List<int[]> list) {
+    return list.get(list.size() - 1);
   }
 }
