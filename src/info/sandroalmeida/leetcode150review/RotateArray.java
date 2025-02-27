@@ -13,7 +13,7 @@ public class RotateArray {
 
   public static void main(String[] args) {
     int[] nums = {1,2,3,4,5,6,7};
-    rotateSolution2(nums, 3);
+    rotateSolution2(nums, 2);
     System.out.println(Arrays.toString(nums));
   }
 
@@ -34,9 +34,10 @@ public class RotateArray {
     // example the array [1,2] with k=3 we can use mod to define the cut
     // 3 % 2 = 1 slice will be [1] and [2] result [2,1]
 
-    int cut = k < nums.length ? k : (k - nums.length) % nums.length;
-    int[] part1 = Arrays.copyOfRange(nums, 0, cut + 1);
-    int[] part2 = Arrays.copyOfRange(nums, cut + 1, nums.length);
+    int cut = k < nums.length ? k : (k - nums.length - 1) % nums.length;
+    System.out.println(cut);
+    int[] part1 = Arrays.copyOfRange(nums, 0, cut);
+    int[] part2 = Arrays.copyOfRange(nums, cut, nums.length);
     int[] temp = new int[nums.length];
     System.arraycopy(part2, 0, temp,0, part2.length);
     System.arraycopy(part1, 0, temp,part2.length, part1.length);
