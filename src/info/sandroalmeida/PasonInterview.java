@@ -1,4 +1,4 @@
-package info.sandroalmeida.leetcode150review;
+package info.sandroalmeida;
 
 import java.util.HashSet;
 import java.util.Set;
