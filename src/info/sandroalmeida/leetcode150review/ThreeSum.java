@@ -16,11 +16,7 @@ public class ThreeSum {
       List<List<Integer>> pairResults = twoSum(partialNums, target);
       if(!pairResults.isEmpty()) {
         for(List<Integer> pair: pairResults) {
-          List<Integer> triple = new ArrayList<>();
-          triple.add(nums[i]);
-          triple.add(pair.get(0));
-          triple.add(pair.get(1));
-          result.add(triple);
+          result.add(Arrays.asList(nums[i], pair.get(0), pair.get(1)));
         }
       }
     }
@@ -33,10 +29,7 @@ public class ThreeSum {
     Set<Integer> set = new HashSet<>();
     for(int i = 0; i < nums.length; i++) {
       if(set.contains(target - nums[i])) {
-        List<Integer> pair = new ArrayList<>();
-        pair.add(target - nums[i]);
-        pair.add(nums[i]);
-        result.add(pair);
+        result.add(Arrays.asList((target - nums[i]), nums[i]));
       }
       set.add(nums[i]);
     }
